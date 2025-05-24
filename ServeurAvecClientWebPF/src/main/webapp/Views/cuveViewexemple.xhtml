@@ -1,0 +1,41 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml"   
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title>Gestion de l'eau de pluie</title>
+    </h:head>
+
+    <h:body>         
+        <style>
+            .ui-chart {
+                margin-bottom: 50px;
+            }
+        </style>
+        <div class="card">  
+            <div class="ui-g-4">
+                <p:card styleClass="metric-card">
+                    <p:outputLabel value="Température" style="font-weight: bold"/>
+                    <p:outputLabel value=" #{mesureCuveBean.lastTemperature} °C">
+                        <f:convertNumber maxFractionDigits="1"/>
+                    </p:outputLabel>
+                </p:card>
+                <p:card styleClass="metric-card">
+                    <p:outputLabel value="Niveau d'eau" style="font-weight: bold"/>
+                    <p:outputLabel value=" #{niveauEauBean.last} L"/>
+                        
+                    
+                </p:card>
+                <p:card styleClass="metric-card">
+                    <p:outputLabel value="Mode d'alimentation : " style="font-weight: bold"/>
+                    <p:outputLabel value=" #{cuveServiceBean.mode} "/>
+                </p:card>
+            </div>
+        </div>
+    </h:body> 
+</html>	
