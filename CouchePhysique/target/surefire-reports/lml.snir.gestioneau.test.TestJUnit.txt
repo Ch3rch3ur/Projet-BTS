@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: lml.snir.gestioneau.test.TestJUnit
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.39 sec - in lml.snir.gestioneau.test.TestJUnit

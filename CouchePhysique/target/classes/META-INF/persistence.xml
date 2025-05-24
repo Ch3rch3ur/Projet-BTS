@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="lml.snir.gestionteau_Common_jar_1.0PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>lml.snir.gestioneau.metier.entity.Cuve</class>
+    <class>lml.snir.gestioneau.metier.entity.Pression</class>
+    <class>lml.snir.gestioneau.metier.entity.Debit</class>
+    <class>lml.snir.gestioneau.metier.entity.NiveauEau</class>
+    <class>lml.snir.gestioneau.metier.entity.Consommation</class>
+    <class>lml.snir.gestioneau.metier.entity.Pompe</class>
+    <class>lml.snir.gestioneau.metier.entity.GrandeurPhysique</class>
+    <class>lml.snir.gestioneau.metier.entity.Temperature</class>
+    <class>lml.snir.gestioneau.metier.entity.MesureCuve</class>
+    <class>lml.snir.gestioneau.metier.entity.ConsommationPluie</class>
+    <class>lml.snir.gestioneau.metier.entity.ConsommationVille</class>
+    <class>lml.snir.gestioneau.metier.entity.MesurePompe</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/gestionEau?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="javax.persistence.jdbc.user" value="gestionEau"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="8Tqr8ARcWdpyP2w6"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+    </properties>
+  </persistence-unit>
+</persistence>

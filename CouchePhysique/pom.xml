@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>lml.snir.gestioneau</groupId>
+    <artifactId>GestionEauPhysique</artifactId>
+    <version>1.0</version>    
+    <packaging>jar</packaging>
+    <name>GestionEauPhysique</name>    
+
+    <parent>
+        <groupId>lml.snir.gestioneau</groupId>
+        <artifactId>GestionEau</artifactId>
+        <version>1.0</version>
+    </parent>
+    <dependencies>
+        <dependency>
+            <groupId>lml.snir.gestioneau</groupId>
+            <artifactId>GestionEauCommon</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>lml.snir.persistence</groupId>
+            <artifactId>LMLPersistenceJPA</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+             <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+            <type>jar</type>
+        </dependency>
+        
+        <dependency>
+            <groupId>lml.snir.tools</groupId>
+            <artifactId>LMLTools</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+</project>
