@@ -1,0 +1,62 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml"
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title>Gestion de l'eau de pluie</title>
+    </h:head>
+
+    <h:body>         
+        <style>
+            .ui-chart {
+                margin-bottom: 50px;
+            }
+        </style>
+        
+        <h2>Cuve</h2>
+        <div class="metrics-container">
+            <div class="metric-card temperature-card">
+                <div class="card-title">Température</div>
+                <p:outputLabel styleClass="metric-value">
+                    <h:outputText value="#{mesureCuveBean.lastTemperature}">
+                        <f:convertNumber maxFractionDigits="1" />
+                    </h:outputText>
+                    <span class="metric-unit">°C</span>
+                </p:outputLabel>
+            </div>
+
+            <div class="metric-card pressure-card">
+                <div class="card-title">Niveau d'eau</div>
+                <p:outputLabel styleClass="metric-value">
+                    <h:outputText value="#{niveauEauBean.last}">
+                        <f:convertNumber maxFractionDigits="1" />
+                    </h:outputText>
+                    <span class="metric-unit">Litre(s)</span>
+                </p:outputLabel>
+                <div class="card-footer">
+                    <p:progressBar value="#{niveauEauBean.last }" labelTemplate="#{niveauEauBean.last} litres" styleClass="niveaueau-bar" />
+                </div>
+            </div>
+
+            <div class="metric-card debit-card">
+                <div class="card-title">Mode d'alimentation</div>
+                <p:outputLabel styleClass="metric-value">
+                    <h:outputText value="#{cuveServiceBean.mode}">
+                    </h:outputText>
+                </p:outputLabel>
+            </div>
+        </div>
+        <div class="metric-card alerte-card">
+            <div class="card-title">Alerte</div>
+            <p:outputLabel styleClass="alerte-card">
+                <h:outputText value="#{alerteBean.cuveLast}">
+                </h:outputText>
+            </p:outputLabel>
+        </div>
+    </h:body>
+</html>

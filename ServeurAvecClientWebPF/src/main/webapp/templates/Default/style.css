@@ -1,0 +1,55 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    color: #82b1ff;
+}
+
+h2 {
+    color: #82b1ff;
+}
+
+.ui-widget-content {
+    background: none!important;
+    background-color: #222!important;
+    color: white!important;
+}
+
+.ui-corner-all {
+    background-color: #4d82cb!important; 
+    color: white!important;
+}
+
+.ui-state-default {
+    background: none!important;
+    background-color: #1c1c1c!important;
+    color: white;
+}
+
+.ui-column-title {
+    color: #82b1ff!important;
+}
+
+.seDeconnecter {
+    background-color: lightgray!important;
+    color: #82b1ff!important;
+}
+
+/*///////////////////////////////////////////////////////////////////////*/
+
+
+/*.ui-widget {  Boutons Action + Ajouter + Labels dans ajouter 
+    background-color: #4d82cb!important; 
+    color: white!important;
+}*/
+
+/*.ui-tabmenu-nav { Dégradé arrière plan du tabmenu
+    background-color: #4d82cb!important; 
+    color: white!important;
+}*/
+
+/*.ui-tabmenuitem {
+    background-color: #4d82cb!important; 
+    color: white!important;
+}*/

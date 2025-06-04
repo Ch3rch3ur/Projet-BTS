@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title>Gestion de l'eau de pluie</title>
+        <style>
+            
+            
+        </style>
+    </h:head>
+
+    <h:body>
+        <h2>Pompe</h2>
+        <div class="metrics-container">
+            <div class="metric-card temperature-card">
+                <div class="card-title">Température</div>
+                <p:outputLabel styleClass="metric-value">
+                    <h:outputText value="#{mesurePompeBean.lastTemperature}">
+                        <f:convertNumber maxFractionDigits="1" />
+                    </h:outputText>
+                    <span class="metric-unit">°C</span>
+                </p:outputLabel>
+            </div>
+        
+            <div class="metric-card pressure-card">
+                <div class="card-title">Pression</div>
+                <p:outputLabel styleClass="metric-value">
+                    <h:outputText value="#{mesurePompeBean.lastPression}">
+                        <f:convertNumber maxFractionDigits="1" />
+                    </h:outputText>
+                    <span class="metric-unit">Bar(s)</span>
+                </p:outputLabel>
+
+            </div>
+       
+            <div class="metric-card debit-card">
+                <div class="card-title">Débit</div>
+                <p:outputLabel styleClass="metric-value">
+                    <h:outputText value="#{mesurePompeBean.lastDebit}">
+                        
+                    </h:outputText>
+                    <span class="metric-unit">Litre(s) par minute</span>
+                </p:outputLabel>
+            </div>
+        </div>
+        <div class="metric-card alerte-card">
+            <div class="card-title">Alerte</div>
+            <p:outputLabel styleClass="alerte-card">
+                <h:outputText value="#{alerteBean.pompeLast}">
+                </h:outputText>
+            </p:outputLabel>
+        </div>
+    </h:body>
+</html>

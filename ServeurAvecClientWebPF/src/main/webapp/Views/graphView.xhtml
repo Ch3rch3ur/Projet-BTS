@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml"   
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <style>
+            .ui-chart {
+                margin-bottom: 50px;
+            }
+        </style>
+
+        <title>Gestion de l'eau de pluie</title>
+
+    </h:head>
+
+    <h:body>
+        <h2>Graphique</h2>
+        <div class="metric-card consommation-card">
+            <p:outputLabel styleClass="metric-value">
+                <p:chart type="pie" model="#{chartView.pieModel}" />
+            </p:outputLabel>
+        </div>
+
+        
+    </h:body>
+</html>

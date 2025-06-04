@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition>
+        <div class="panel">
+            <h2>Historique des données</h2>
+
+            <!-- Sélecteur de date amélioré -->
+            <div class="date-selection-panel">
+                <div class="date-selector-group">
+                    <h3>Sélection de la date et heure</h3>
+                    <p:calendar id="dateTimePicker" 
+                                value="#{calendarView.date1}" 
+                                pattern="dd/MM/yyyy HH:mm"
+                                timeInput="true"
+                                showButtonPanel="true"
+                                locale="fr"
+                                styleClass="custom-calendrier">
+                        <p:ajax event="dateSelect" 
+                                listener="#{calendarView.onDateSelect}" 
+                                update="cuveData pompeData" />
+                    </p:calendar>
+                </div>
+            </div>
+
+            <!-- Section Cuve -->
+            <h:panelGroup id="cuveData">
+                <div class="section-header">
+                    <h2>
+                        <i class="pi pi-database" />
+                        Données de la Cuve
+                    </h2>
+                </div>
+
+                <div class="metrics-container">
+                    <div class="metric-card temperature-card">
+                        <div class="card-title">
+                            <i class="pi pi-thermometer" />
+                            Température
+                        </div>
+                        <p:outputLabel styleClass="metric-value">
+                            <h:outputText value="#{mesureCuveBean.temperatureHistorique}">
+                                <f:convertNumber maxFractionDigits="2" />
+                            </h:outputText>
+                            <span class="metric-unit">°C</span>
+                        </p:outputLabel>
+                    </div>
+
+                    <div class="metric-card pressure-card">
+                        <div class="card-title">
+                            <i class="pi pi-chart-bar" />
+                            Niveau d'eau
+                        </div>
+                        <p:outputLabel styleClass="metric-value">
+                            <h:outputText value="#{niveauEauBean.lastHistorique}">
+                                <f:convertNumber maxFractionDigits="0" />
+                            </h:outputText>
+                            <span class="metric-unit">Litre(s)</span>
+                        </p:outputLabel>
+                    </div>
+
+                    <div class="metric-card debit-card">
+                        <div class="card-title">
+                            <i class="pi pi-arrow-right-arrow-left" />
+                            Mode d'alimentation
+                        </div>
+                        <p:outputLabel styleClass="metric-value mode-value">
+                            <h:outputText value="#{cuveServiceBean.lastMode}" />
+                        </p:outputLabel>
+                        <div class="card-footer">
+                            <span class="mode-indicator #{cuveServiceBean.lastMode == 'Eau de pluie' ? 'mode-rain' : (cuveServiceBean.lastMode == 'Eau de ville' ? 'mode-city' : 'mode-mixed')}">
+                                <i class="pi #{cuveServiceBean.lastMode == 'Eau de pluie' ? 'pi-cloud' : (cuveServiceBean.lastMode == 'Eau de ville' ? 'pi-home' : 'pi-arrows-h')}" />
+                                #{cuveServiceBean.lastMode}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </h:panelGroup>
+
+            <h:panelGroup id="pompeData">
+                <div class="section-header">
+                    <h2>
+                        <i class="pi pi-cog" />
+                        Données de la Pompe
+                    </h2>
+                </div>
+
+                <div class="metrics-container">
+                    <div class="metric-card temperature-card">
+                        <div class="card-title">
+                            <i class="pi pi-thermometer" />
+                            Température
+                        </div>
+                        <p:outputLabel styleClass="metric-value">
+                            <h:outputText value="#{mesurePompeBean.temperatureHistorique}">
+                                <f:convertNumber maxFractionDigits="1" />
+                            </h:outputText>
+                            <span class="metric-unit">°C</span>
+                        </p:outputLabel>
+                        <div class="card-footer">
+                            <p:progressBar value="#{mesurePompeBean.temperatureHistorique * 2}" 
+                                           labelTemplate="#{mesurePompeBean.temperatureHistorique}°C" 
+                                           styleClass="temperature-progress" />
+                        </div>
+                    </div>
+
+                    <div class="metric-card pressure-card">
+                        <div class="card-title">
+                            <i class="pi pi-gauge" />
+                            Pression
+                        </div>
+                        <p:outputLabel styleClass="metric-value">
+                            <h:outputText value="#{mesurePompeBean.pressionHistorique}">
+                                <f:convertNumber maxFractionDigits="1" />
+                            </h:outputText>
+                            <span class="metric-unit">Bar(s)</span>
+                        </p:outputLabel>
+                        <div class="card-footer">
+                            <p:progressBar value="#{mesurePompeBean.pressionHistorique * 16.67}" 
+                                           labelTemplate="#{mesurePompeBean.pressionHistorique} bars" 
+                                           styleClass="pressure-progress" />
+                        </div>
+                    </div>
+
+                    <div class="metric-card debit-card">
+                        <div class="card-title">
+                            <i class="pi pi-arrow-up" />
+                            Débit
+                        </div>
+                        <p:outputLabel styleClass="metric-value">
+                            <h:outputText value="#{mesurePompeBean.debitHistorique}">
+                                <f:convertNumber maxFractionDigits="1" />
+                            </h:outputText>
+                            <span class="metric-unit">L/min</span>
+                        </p:outputLabel>
+                        <div class="card-footer">
+                            <p:progressBar value="#{mesurePompeBean.debitHistorique * 3.33}" 
+                                           labelTemplate="#{mesurePompeBean.debitHistorique} L/min" 
+                                           styleClass="debit-progress" />
+                        </div>
+                    </div>
+                </div>
+            </h:panelGroup>
+
+            <p:growl id="growl" showDetail="true" life="3000" />
+
+        </div>
+    </ui:composition>
+</html>
