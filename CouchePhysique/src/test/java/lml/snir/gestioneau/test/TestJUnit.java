@@ -126,21 +126,21 @@ public class TestJUnit {
 
     public void addMesurePompeTemperature() throws Exception {
         Temperature t = new Temperature();
-        t.setValue(RandomValueGenerator.generateRandomDouble(10, 16));
+        t.setValue(RandomValueGenerator.generateRandomDouble(-20, 50)); //valeurs minimum : -20 et valeurs max : 50
         t = this.tempSrv.add(t);
         addMesurePompeGrandeurPhysique(t);
     }
 
     public void addMesurePompePression() throws Exception {
         Pression p = new Pression();
-        p.setValue(RandomValueGenerator.generateRandomDouble(0, 10)); // Exemple de plage pour la pression
+        p.setValue(RandomValueGenerator.generateRandomDouble(0, 3)); //valeurs minimum : 0 et valeurs max : 3
         p = this.pressionSrv.add(p);
         addMesurePompeGrandeurPhysique(p);
     }
 
     public void addMesurePompeDebit() throws Exception {
         Debit d = new Debit();
-        d.setValue(RandomValueGenerator.generateRandomDouble(0, 100)); // Exemple de plage pour le débit
+        d.setValue(RandomValueGenerator.generateRandomDouble(0, 30)); //valeurs minimum : 0L/minutes et valeurs max : 30L/minutes
         d = this.debitSrv.add(d);
         addMesurePompeGrandeurPhysique(d);
     }
@@ -155,7 +155,7 @@ public class TestJUnit {
 
         MesureCuve mesureCuve = new MesureCuve();
         Temperature t = new Temperature();
-        t.setValue(RandomValueGenerator.generateRandomDouble(11, 16));
+        t.setValue(RandomValueGenerator.generateRandomDouble(1, 17)); //valeurs minimum : 1 et valeurs max : 17
         t = this.tempSrv.add(t);
 
         ConsommationPluie consommationpluie;
@@ -166,15 +166,15 @@ public class TestJUnit {
         consommationpluie = new ConsommationPluie();
 
         consommationville.setDate(RandomValueGenerator.generateRandomDate());
-        consommationville.setValue(RandomValueGenerator.generateRandomDouble(10, 300));
+        consommationville.setValue(RandomValueGenerator.generateRandomDouble(10, 300)); //valeurs minimum : 10 et valeurs max : 300
         consommationville = this.consVilleSrv.add(consommationville);
 
         consommationpluie.setDate(RandomValueGenerator.generateRandomDate());
-        consommationpluie.setValue(RandomValueGenerator.generateRandomDouble(10, 300));
+        consommationpluie.setValue(RandomValueGenerator.generateRandomDouble(10, 300)); //valeurs minimum : 10 et valeurs max : 300
         consommationpluie = this.consPluieSrv.add(consommationpluie);
 
         NiveauEau niveauEau = new NiveauEau();
-        niveauEau.setValue(RandomValueGenerator.generateRandomDouble(0, 100));
+        niveauEau.setValue(RandomValueGenerator.generateRandomDouble(0, 20)); //valeurs minimum : 0 et valeurs max : 20
         niveauEau.setDate(RandomValueGenerator.generateRandomDate());
         niveauEau = this.niveaueauSrv.add(niveauEau);
 
